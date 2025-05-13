@@ -1,49 +1,43 @@
-import { set } from "mongoose";
-import { createContext } from "react";
+import { createContext, useState } from "react";
 
 export const UserProgressContext = createContext({
-    progress: '',
-    showCart:() =>{},
-    hideCart: () => {},
-    showCheckout: () => {},
-    hideCheckout: () => {},
+  progress: "",
+  showCart: () => {},
+  hideCart: () => {},
+  showCheckout: () => {},
+  hideCheckout: () => {},
 });
 
 export default function UserProgressContextProvider({ children }) {
+  const [userProgress, setUserProgress] = useState({});
 
-const [userProgress, setUserProgress] = useState({})
+  function showCart() {
+    setUserProgress("cart");
+  }
 
-    
+  function hideCart() {
+    setUserProgress("");
+  }
 
-    function showCart() {
-        setUserProgress('cart')
-    }
+  function showCheckout() {
+    setUserProgress("checkout");
+  }
 
-    function hideCart() {
-        setUserProgress('')
-    }
+  function hideCheckout() {
+    setUserProgress("");
+  }
 
-    function showCheckout(){
-        setUserProgress('checkout')
-    }
+  const userProgressctx = {
+    progress: userProgress,
+    showCart: showCart,
+    hideCart: hideCart,
+    showCheckout: showCheckout,
+    hideCheckout: hideCheckout,
+  };
 
-    function hideCheckout(){
-        setUserProgress('')
-    }
-
-    const userProgressctx ={
-        progress: userProgress,
-        showCart: showCart,
-        hideCart: hideCart,
-        showCheckout: showCheckout,
-        hideCheckout: hideCheckout,
-    }
-     
-
-    
-    return (
-        <UserProgressContext.Provider value={userProgressctx}>
-        {children}
-        </UserProgressContext.Provider>
-    );
+  return (
+    <UserProgressContext.Provider value={userProgressctx}>
+      {children}
+    </UserProgressContext.Provider>
+  );
 }

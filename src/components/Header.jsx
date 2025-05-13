@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import logoImg from "../assets/logo.jpg";
 import { CartContext } from "../store/CartContext";
+import { UserProgressContext } from "../store/UserProgressContext";
 
 export default function Header() {
-    const userContext = useContext(UserProgressContext)
+  const userContext = useContext(UserProgressContext);
   const orderContext = useContext(CartContext);
   const totalItems = orderContext.items.reduce((acc, item) => {
     return acc + item.quantity;
@@ -16,11 +17,9 @@ export default function Header() {
   //This means that the time it takes to run the function will increase linearly with the size of the items array. In other words, if you double the number of items in the array, it will take roughly twice as long to calculate the total quantity.
   //the space complexity is O(1) because it only uses a fixed amount of memory to store the accumulator and the current item being processed. It does not create any new arrays or objects that depend on the size of the input array.
 
-
-    const openModal = () => {
-        userContext.showCart()
-    }
-
+  const openModal = () => {
+    userContext.showCart();
+  };
 
   return (
     <header id="main-header">
