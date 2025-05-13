@@ -1,5 +1,5 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
 const Button = ({
   children,
@@ -10,9 +10,8 @@ const Button = ({
   style = {},
   ...props
 }) => {
-
-    let defaultStyle = textOnly? 'text-button' : 'button';
-    const cssClass = defaultStyle + (css ? ` ${css}` : '');
+  let defaultStyle = textOnly ? "text-button" : "button";
+  const cssClass = defaultStyle + (css ? ` ${css}` : "");
   return (
     <button
       onClick={onClick}

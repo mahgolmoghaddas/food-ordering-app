@@ -4,10 +4,13 @@ import CartContextProvider from "./store/CartContext";
 
 function App() {
   return (
+    <UserProgressContextProvider>
     <CartContextProvider>
-      <Header/>
-      <Meals/>
+      <Header />
+      <Cart/>
+      <Meals />
     </CartContextProvider>
+    </UserProgressContextProvider>
   );
 }
 
