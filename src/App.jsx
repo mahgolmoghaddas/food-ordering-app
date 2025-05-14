@@ -10,9 +10,9 @@ function App() {
     <UserProgressContextProvider>
       <CartContextProvider>
         <Cart />
-        <Checkout/>
+        <Checkout />
         <Header />
-        
+
         <Meals />
       </CartContextProvider>
     </UserProgressContextProvider>

@@ -1,6 +1,6 @@
 import React from "react";
 
-function CartItem({ name, price,  quantity, onIncrease, onDecrease }) {
+function CartItem({ name, price, quantity, onIncrease, onDecrease }) {
   return (
     <li className="cart-item">
       <p>

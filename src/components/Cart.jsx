@@ -15,14 +15,19 @@ function Cart() {
 
   const closeModal = () => {
     userProgress.hideCart();
+    
   };
 
   const proceedToCheckout = () => {
     userProgress.showCheckout();
-  }
+  };
 
   return (
-    <Modal className="cart" open={userProgress.progress === "cart"} onClose={userProgress.progress === 'cart' ? closeModal : null}>
+    <Modal
+      className="cart"
+      open={userProgress.progress === "cart"}
+      onClose={userProgress.progress === "cart" ? closeModal : null}
+    >
       <h2> Your Cart</h2>
       <ul>
         {cartcontext.items.map((item) => (
@@ -39,7 +44,9 @@ function Cart() {
       <p className="cart-total">Total Price: {totalPrice}</p>
       <p>
         <Button onClick={closeModal}>Close</Button>
-       {cartcontext.items.length>0 && <Button onClick={proceedToCheckout}> Go to Checkout</Button>}
+        {cartcontext.items.length > 0 && (
+          <Button onClick={proceedToCheckout}> Go to Checkout</Button>
+        )}
       </p>
     </Modal>
   );
